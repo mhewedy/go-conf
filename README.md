@@ -23,3 +23,9 @@ indexer.grab_photos=false
 #attendees.search_count=20
 
 ```
+
+and in code:
+```golang
+sc := conf.GetInt("attendees.search_count", 20)
+fmt.Println(sc)
+```
