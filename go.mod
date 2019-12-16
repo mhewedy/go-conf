@@ -1,4 +1,4 @@
-module github.com/mhewedy/mego
+module github.com/mhewedy/go-conf
 
 go 1.13
 
