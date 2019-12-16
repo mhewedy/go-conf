@@ -13,8 +13,8 @@ ews.skip_tls=true
 #ews.ad_domain_name=EXAMPLE
 #ews.dns_name=example.com
 
-client.timeout=1m       		 # use syntax of time.ParseDuration
-calendar.end_of_day_hours=18     # which hour to use as the end of the day when search for busy calendar
+client.timeout=1m               # use syntax of time.ParseDuration
+calendar.end_of_day_hours=18    # which hour to use as the end of the day when search for busy calendar
 
 indexer.parallel=true
 indexer.grab_photos=false
