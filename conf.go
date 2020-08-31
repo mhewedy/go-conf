@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"sync"
@@ -28,7 +29,7 @@ type source struct {
 }
 
 func (s source) Read() (io.ReadCloser, error) {
-	f, err := os.Open("app.conf")
+	f, err := os.Open(filepath.Join(os.Getenv("CONF_BASEDIR"), "app.conf"))
 	if err != nil {
 		return nil, err
 	}
