@@ -3,6 +3,8 @@ A very very very simple go configuration loader
 
 load a file `app.conf` and read the properties, it looks like java props file
 
+You can customize the path by setting env var `CONF_BASEDIR`
+
 example:
 ```shell script
 
@@ -26,6 +28,10 @@ indexer.grab_photos=false
 
 and in code:
 ```golang
+import "github.com/mhewedy/go-conf"
+...
+...
+
 sc := conf.GetInt("attendees.search_count", 20)
 fmt.Println(sc)
 ```
