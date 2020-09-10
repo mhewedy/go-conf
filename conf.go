@@ -75,45 +75,63 @@ func Get(key string, defaultValue ...string) string {
 	return v
 }
 
-func GetBool(key string, defaultValue bool) bool {
+func GetBool(key string, defaultValue ...bool) bool {
 	once.Do(load)
 
 	v, found := props[key]
 	if !found {
-		return defaultValue
+		if len(defaultValue) > 0 {
+			return defaultValue[0]
+		}
+		return false
 	}
 	b := v == "true" || v == "yes"
 	return b
 }
 
-func GetInt(key string, defaultValue int) int {
+func GetInt(key string, defaultValue ...int) int {
+
+	defFunc := func() int {
+		if len(defaultValue) > 0 {
+			return defaultValue[0]
+		}
+		return 0
+	}
+
 	once.Do(load)
 
 	v, found := props[key]
 	if !found {
-		return defaultValue
+		return defFunc()
 	}
 
 	d, err := strconv.Atoi(v)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
-		return defaultValue
+		return defFunc()
 	}
 	return d
 }
 
-func GetDuration(key string, defaultValue time.Duration) time.Duration {
+func GetDuration(key string, defaultValue ...time.Duration) time.Duration {
 	once.Do(load)
+
+	defFunc := func() time.Duration {
+		if len(defaultValue) > 0 {
+			return defaultValue[0]
+		}
+		return time.Duration(0)
+	}
 
 	v, found := props[key]
 	if !found {
-		return defaultValue
+		return defFunc()
 	}
 
 	d, err := time.ParseDuration(v)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
-		return defaultValue
+		return defFunc()
 	}
 	return d
 }

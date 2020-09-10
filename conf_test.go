@@ -9,5 +9,5 @@ func TestGet(t *testing.T) {
 	DefaultSource = &DummySource{}
 
 	assert.Equal(t, "", Get("Abc"))
-	assert.Equal(t, false, GetBool("Abc", false))
+	assert.Equal(t, false, GetBool("Abc"))
 }
