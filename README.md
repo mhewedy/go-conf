@@ -1,9 +1,9 @@
 # go-conf
 A very very very simple go configuration loader
 
-load a file `app.conf` from the project root direcotry and read the properties, it looks like java props file
+load a file `app.conf` from the project root direcotry and read the properties, it uses a "key=value" format
 
->NOTE: You can customize the path by setting env var `CONF_BASEDIR`
+>NOTE: You can customize the path where the file exists (e.g the path of the configmap mounted inside k8s pod) by setting env var `CONF_BASEDIR`
 
 example:
 ```shell script
