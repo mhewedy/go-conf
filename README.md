@@ -3,7 +3,7 @@ A very very very simple go configuration loader
 
 load a file `app.conf` from the project root direcotry and read the properties, it looks like java props file
 
-You can customize the path by setting env var `CONF_BASEDIR`
+>NOTE: You can customize the path by setting env var `CONF_BASEDIR`
 
 example:
 ```shell script
